@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
 import '../App.css';
 import Tag from '../components/Tag';
+import Bar from '../components/navbar';
 
 const Container = styled.div`
     position: fixed;
-    inset: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,13 +28,16 @@ const Question = styled.div `
     margin-bottom: 24px;
 `;
 
-export default function Choice(){
+export default function Choice() {
     return (
-        <Container>
-            <MainArea>
-                <Question>무슨 종류의 면접을 보고싶나요?</Question> 
-                <Tag></Tag>
-            </MainArea>
-        </Container>
+        <>
+            <Bar />
+            <Container>
+                <MainArea>
+                    <Question>무슨 종류의 면접을 보고싶나요?</Question> 
+                    <Tag />
+                </MainArea>
+            </Container>
+        </>
     );
 }
