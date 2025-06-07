@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled'
+import '../App.css';
 import logo from '../assets/logo.svg';
 
 const Container = styled.div`
