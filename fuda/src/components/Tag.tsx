@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 const TagContainer = styled.div`
     display: flex;
@@ -27,9 +28,17 @@ const MainTag = styled.div`
 `;
 
 export default function Tag() {
+    const navigate = useNavigate();
+
+    const handleClick = (tag: string) => {
+        if (tag === '#전체') {
+            navigate('/entire');
+        }
+    };
+
     return (
         <TagContainer>
-            <MainTag>#전체</MainTag>
+            <MainTag onClick={() => handleClick('#전체')}>#전체</MainTag>
             <MainTag>#인성</MainTag>
             <MainTag>#백엔드</MainTag>
             <MainTag>#CS</MainTag>
