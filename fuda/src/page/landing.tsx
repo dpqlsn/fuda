@@ -4,12 +4,14 @@ import '../App.css';
 import logo from '../assets/logo.svg';
 
 const Container = styled.div`
+    position: fixed;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background-color: white;
+    overflow: hidden;
 `;
 
 const Logo = styled.img`
