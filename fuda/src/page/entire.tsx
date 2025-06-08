@@ -14,11 +14,80 @@ const Container = styled.div`
     background-color: white;
 `;
 
-const Question = styled.div `
+const Timer = styled.div`
+    background-color: #7BC357;
+    color: white;
+    font-size: 24px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Beanpole', sans-serif;
+`;
+
+const Question = styled.div`
     font-size: 40px;
+    text-align: center;
     color: #161716;
     margin-bottom: 24px;
     width: 405px;
+    line-height: 1.5;
+    margin-bottom: 48px;
+`;
+
+const InputBox = styled.textarea`
+    width: 720px;
+    height: 120px;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    resize: none;
+    margin-bottom: 80px;
+    font-size: 20px;
+    font-family: 'Beanpole', sans-serif;
+
+    &::placeholder {
+        color: #B5B5B5;
+    }
+`;
+
+const ButtonContainer = styled.div`
+    display: flex;
+    gap: 20px;
+`;
+
+const NextButton = styled.button`
+    background-color: #7BC357;
+    color: white;
+    padding: 12px 60px;
+    border: none;
+    border-radius: 24px;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: 'Beanpole', sans-serif;
+
+    :hover {
+        color: #7BC357;
+        background-color: white;
+        border: 2px solid #7BC357;
+    }
+`;
+
+const SaveButton = styled.button`
+    background-color: white;
+    color: #7BC357;
+    padding: 12px 60px;
+    border: 2px solid #7BC357;
+    border-radius: 24px;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: 'Beanpole', sans-serif;
+
+    :hover {
+        background-color: #7BC357;
+        color: white;
+    }
 `;
 
 export default function Entire() {
@@ -26,7 +95,15 @@ export default function Entire() {
         <>
             <Bar />
             <Container>
-                <Question>React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?</Question>
+                <Timer>0:00</Timer>
+                <Question>
+                    React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?
+                </Question>
+                <InputBox placeholder="입력하세요" />
+                <ButtonContainer>
+                    <NextButton>넘어가기</NextButton>
+                    <SaveButton>저장하기</SaveButton>
+                </ButtonContainer>
             </Container>
         </>
     );
