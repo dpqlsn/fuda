@@ -50,6 +50,12 @@ const InputBox = styled.textarea`
     &::placeholder {
         color: #B5B5B5;
     }
+
+    &:focus {
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
 `;
 
 const ButtonContainer = styled.div`
