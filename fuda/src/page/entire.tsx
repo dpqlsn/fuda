@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import '../App.css';
 import styled from '@emotion/styled';
 import Bar from '../components/navbar';
@@ -29,10 +30,9 @@ const Question = styled.div`
     font-size: 40px;
     text-align: center;
     color: #161716;
-    margin-bottom: 24px;
+    margin-bottom: 48px;
     width: 405px;
     line-height: 1.5;
-    margin-bottom: 48px;
 `;
 
 const InputBox = styled.textarea`
@@ -97,11 +97,26 @@ const SaveButton = styled.button`
 `;
 
 export default function Entire() {
+    const [seconds, setSecond] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSecond((prev) => prev + 1);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const formatTime = (Second: number) => {
+        const min = Math.floor(Second / 60);
+        const sec = Second % 60;
+        return `${min}:${sec.toString().padStart(2, '0')}`;
+    };
+
     return (
         <>
             <Bar />
             <Container>
-                <Timer>0:00</Timer>
+                <Timer>{formatTime(seconds)}</Timer>
                 <Question>
                     React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?
                 </Question>
