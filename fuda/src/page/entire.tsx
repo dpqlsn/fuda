@@ -96,26 +96,21 @@ const SaveButton = styled.button`
 `;
 
 export default function Entire() {
-    const [seconds, setSecond] = useState(0);
+const [time, setTime] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSecond((prev) => prev + 1);
-        }, 1000);
-        return () => clearInterval(interval);
+useEffect(() => {
+    const timer = setInterval(() => setTime(t => t + 1), 1000);
+    return () => clearInterval(timer);
     }, []);
 
-    const formatTime = (Second: number) => {
-        const min = Math.floor(Second / 60);
-        const sec = Second % 60;
-        return `${min}:${sec.toString().padStart(2, '0')}`;
-    };
+    const formatTime = (t: number) =>
+    `${Math.floor(t / 60)}:${(t % 60).toString().padStart(2, '0')}`;
 
     return (
         <>
             <Bar />
             <Container>
-                <Timer>{formatTime(seconds)}</Timer>
+                <Timer>{formatTime(time)}</Timer>
                 <Question>
                     React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?
                 </Question>
