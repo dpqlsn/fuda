@@ -74,9 +74,9 @@ const NextButton = styled.button`
     font-family: 'Beanpole', sans-serif;
 
     :hover {
-        color: #7BC357;
-        background-color: white;
-        border: 1.5px solid #7BC357;
+        color: #fff;
+        background-color: #557E41;
+        cursor: pointer;
     }
 `;
 
@@ -92,6 +92,7 @@ const SaveButton = styled.button`
     :hover {
         background-color: #7BC357;
         color: white;
+        cursor: pointer;
     }
 `;
 
