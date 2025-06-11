@@ -31,7 +31,6 @@ const Question = styled.div`
     text-align: center;
     color: #161716;
     margin-bottom: 48px;
-    width: 380px;
     line-height: 1.5;
 `;
 
@@ -97,58 +96,77 @@ const SaveButton = styled.button`
 `;
 
 export default function Entire() {
-const [time, setTime] = useState(0);
-const [answer, setAnswer] = useState('');
-const [savedQA, setSavedQA] = useState(() => {
-    const data = localStorage.getItem('savedQA');
-    return data ? JSON.parse(data) : [];
-});
+    const questionList = [
+        "React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?",
+        "리더십 경험이 있다면 소개해주세요.",
+        "실패를 경험한 적이 있다면, 그 상황과 배운 점을 알려주세요.",
+        "브라우저 렌더링 과정에 대해 설명해주세요.",
+        "Typescript를 사용하는 이유와 장점은 무엇인가요?",
+        "인증과 인가의 차이점은? JWT에 대해 설명해주세요.",
+        "Redis를 사용하는 이유는 무엇인가요?",
+        "HTTP와 HTTPS의 차이점은?",
+        "해시 테이블의 시간 복잡도와 충돌 해결 방법은?",
+        "정규화란 무엇이며, 어떤 장점이 있나요?",
+        "Primary Key와 Foreign Key의 차이점은 무엇인가요?",
+    ];
 
-const currentQuestion = [
-    "React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?",
-    "리더십 경험이 있다면 소개해주세요.",
-    "실패를 경험한 적이 있다면, 그 상황과 배운 점을 알려주세요.",
-    "브라우저 렌더링 과정에 대해 설명해주세요.",
-    "Typescript를 사용하는 이유와 장점은 무엇인가요?",
-    "인증과 인가의 차이점은? JWT에 대해 설명해주세요.",
-    "Redis를 사용하는 이유는 무엇인가요?",
-    "HTTP와 HTTPS의 차이점은?",
-    "해시 테이블의 시간 복잡도와 충돌 해결 방법은?",
-    "정규화란 무엇이며, 어떤 장점이 있나요?",
-    "Primary Key와 Foreign Key의 차이점은 무엇인가요?",
-];
+    const [time, setTime] = useState(0);
+    const [answer, setAnswer] = useState('');
+    const [questionIndex, setQuestionIndex] = useState(() => Math.floor(Math.random() * questionList.length));
+    const [savedQA, setSavedQA] = useState(() => {
+        const data = localStorage.getItem('savedQA');
+        return data ? JSON.parse(data) : [];
+    });
 
-const handleSave = () => {
-    const newQA = { question: currentQuestion, answer };
-    const updatedQA = [...savedQA, newQA];
-    setSavedQA(updatedQA);
-    localStorage.setItem('savedQA', JSON.stringify(updatedQA));
-    setAnswer('');
-};
+    const currentQuestion = questionList[questionIndex];
 
-useEffect(() => {
-    const timer = setInterval(() => setTime(t => t + 1), 1000);
-    return () => clearInterval(timer);
+    const handleSave = () => {
+        const newQA = { question: currentQuestion, answer };
+        const updatedQA = [...savedQA, newQA];
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * questionList.length);
+        } while (newIndex === questionIndex);
+        setQuestionIndex(newIndex);
+        setAnswer('');
+        setTime(0);
+
+        setSavedQA(updatedQA);
+        localStorage.setItem('savedQA', JSON.stringify(updatedQA));
+        setAnswer('');
+    };
+
+    const handleNext = () => {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * questionList.length);
+        } while (newIndex === questionIndex);
+        setQuestionIndex(newIndex);
+        setAnswer('');
+        setTime(0);
+    };
+
+    useEffect(() => {
+        const timer = setInterval(() => setTime(t => t + 1), 1000);
+        return () => clearInterval(timer);
     }, []);
 
     const formatTime = (t: number) =>
-    `${Math.floor(t / 60)}:${(t % 60).toString().padStart(2, '0')}`;
+        `${Math.floor(t / 60)}:${(t % 60).toString().padStart(2, '0')}`;
 
     return (
         <>
             <Bar />
             <Container>
                 <Timer>{formatTime(time)}</Timer>
-                <Question>
-                    React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?
-                </Question>
-                <InputBox 
+                <Question>{currentQuestion}</Question>
+                <InputBox
                     placeholder="입력하세요"
                     value={answer}
                     onChange={(e) => setAnswer(e.target.value)}
                 />
                 <ButtonContainer>
-                    <NextButton>넘어가기</NextButton>
+                    <NextButton onClick={handleNext}>넘어가기</NextButton>
                     <SaveButton onClick={handleSave}>저장하기</SaveButton>
                 </ButtonContainer>
             </Container>
