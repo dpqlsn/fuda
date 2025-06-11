@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import '../App.css';
 import Tag from '../components/Tag';
-import Bar from '../components/navbar';
+import Bar from '../components/NavBar';
 
 const Container = styled.div`
     position: fixed;
