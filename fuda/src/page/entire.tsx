@@ -104,7 +104,19 @@ const [savedQA, setSavedQA] = useState(() => {
     return data ? JSON.parse(data) : [];
 });
 
-const currentQuestion = "React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?";
+const currentQuestion = [
+    "React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?",
+    "리더십 경험이 있다면 소개해주세요.",
+    "실패를 경험한 적이 있다면, 그 상황과 배운 점을 알려주세요.",
+    "브라우저 렌더링 과정에 대해 설명해주세요.",
+    "Typescript를 사용하는 이유와 장점은 무엇인가요?",
+    "인증과 인가의 차이점은? JWT에 대해 설명해주세요.",
+    "Redis를 사용하는 이유는 무엇인가요?",
+    "HTTP와 HTTPS의 차이점은?",
+    "해시 테이블의 시간 복잡도와 충돌 해결 방법은?",
+    "정규화란 무엇이며, 어떤 장점이 있나요?",
+    "Primary Key와 Foreign Key의 차이점은 무엇인가요?",
+];
 
 const handleSave = () => {
     const newQA = { question: currentQuestion, answer };

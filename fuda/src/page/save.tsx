@@ -24,7 +24,7 @@ const MainArea = styled.div`
 const Title = styled.div`
     color: #161716;
     font-size: 44px;
-    margin-bottom: 24px;
+    margin-bottom: 44px;
     text-align: left;
 `;
 
@@ -34,7 +34,7 @@ const Item = styled.div`
     background: #F9F9F9;
     padding: 32px;
     border-radius: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     align-items: flex-start;
 `;
 
@@ -48,9 +48,10 @@ const Question = styled.div`
 `;
 
 const Answer = styled.div`
-    color: #B5B5B5;
-    width: 290px;
+    color: gray;
+    width: 220px;
     text-align: left;
+    font-size: 20px;
 `;
 
 const DeleteButton = styled.button`
@@ -76,7 +77,6 @@ export default function SavedList() {
         const newList = [...qaList];
         newList.splice(index, 1);
         setQaList(newList);
-        localStorage.setItem('savedQA', JSON.stringify(newList));
     };
 
     return (
