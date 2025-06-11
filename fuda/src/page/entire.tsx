@@ -98,6 +98,21 @@ const SaveButton = styled.button`
 
 export default function Entire() {
 const [time, setTime] = useState(0);
+const [answer, setAnswer] = useState('');
+const [savedQA, setSavedQA] = useState(() => {
+    const data = localStorage.getItem('savedQA');
+    return data ? JSON.parse(data) : [];
+});
+
+const currentQuestion = "React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?";
+
+const handleSave = () => {
+    const newQA = { question: currentQuestion, answer };
+    const updatedQA = [...savedQA, newQA];
+    setSavedQA(updatedQA);
+    localStorage.setItem('savedQA', JSON.stringify(updatedQA));
+    setAnswer('');
+};
 
 useEffect(() => {
     const timer = setInterval(() => setTime(t => t + 1), 1000);
@@ -115,10 +130,14 @@ useEffect(() => {
                 <Question>
                     React 에서 Usestate hook은 무엇이고 무슨 기능을 담당하나요?
                 </Question>
-                <InputBox placeholder="입력하세요" />
+                <InputBox 
+                    placeholder="입력하세요"
+                    value={answer}
+                    onChange={(e) => setAnswer(e.target.value)}
+                />
                 <ButtonContainer>
                     <NextButton>넘어가기</NextButton>
-                    <SaveButton>저장하기</SaveButton>
+                    <SaveButton onClick={handleSave}>저장하기</SaveButton>
                 </ButtonContainer>
             </Container>
         </>

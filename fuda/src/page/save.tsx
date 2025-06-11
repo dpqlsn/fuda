@@ -1,42 +1,99 @@
-import styled from '@emotion/styled';
-import '../App.css';
-import Bar from '../components/NavBar';
 import { useState } from 'react';
+import styled from '@emotion/styled';
+import Bar from '../components/NavBar';
+import '../App.css';
+
+type Saved = {
+    question: string;
+    answer: string;
+};
 
 const Container = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    padding: 40px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: white;
 `;
 
+const MainArea = styled.div`
+    width: 870px;
+`;
+
 const Title = styled.div`
-    font-size: 40px;
     color: #161716;
-    margin-bottom: 20px;
+    font-size: 44px;
+    margin-bottom: 24px;
+    text-align: left;
 `;
 
-const Message = styled.div`
-    font-size: 20px;
+const Item = styled.div`
+    display: flex;
+    justify-content: space-between;
+    background: #F9F9F9;
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+`;
+
+const Question = styled.div`
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    margin-left: 24px;
+    width: 220px;
+    text-align: left;
+`;
+
+const Answer = styled.div`
     color: #B5B5B5;
+    width: 290px;
+    text-align: left;
 `;
 
-export default function Save() {
-    const [savedQuestions] = useState<string[]>([]);
+const DeleteButton = styled.button`
+    display: flex;
+    justify-content: center;
+    background-color: #7BC357;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-family: 'Beanpole', sans-serif;
+`;
+
+export default function SavedList() {
+    const [qaList, setQaList] = useState<Saved[]>(() => {
+        const data = localStorage.getItem('savedQA');
+        return data ? JSON.parse(data) : [];
+    });
+
+    const handleDelete = (index: number) => {
+        const newList = [...qaList];
+        newList.splice(index, 1);
+        setQaList(newList);
+        localStorage.setItem('savedQA', JSON.stringify(newList));
+    };
 
     return (
         <>
             <Bar />
             <Container>
-                <Title>저장 된 질문보기</Title>
-                {savedQuestions.length === 0 && (
-                    <Message>저장된 질문이 없습니다</Message>
-                )}
+                <MainArea>
+                    <Title>저장 된 질문보기</Title>
+                    {qaList.map((item: Saved, index: number) => (
+                        <Item key={index}>
+                                <Question>{item.question}</Question>
+                                <Answer>{item.answer}</Answer>
+                            <DeleteButton onClick={() => handleDelete(index)}>삭제</DeleteButton>
+                        </Item>
+                    ))}
+                    {qaList.length === 0 && <Answer>저장된 질문이 없습니다.</Answer>}
+                </MainArea>
             </Container>
         </>
     );
