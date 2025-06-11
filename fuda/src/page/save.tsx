@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import '../App.css';
-import Bar from '../components/navbar';
+import Bar from '../components/NavBar';
 import { useState } from 'react';
 
 const Container = styled.div`
