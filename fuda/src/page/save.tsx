@@ -51,16 +51,18 @@ const Answer = styled.div`
     color: gray;
     width: 220px;
     text-align: left;
+    margin-left: 120px;
     font-size: 20px;
 `;
 
 const DeleteButton = styled.button`
     display: flex;
-    justify-content: center;
+    justify-content: right;
     background-color: #7BC357;
     color: white;
     border: none;
     padding: 12px 24px;
+    margin-left: 120px;
     font-size: 20px;
     border-radius: 24px;
     cursor: pointer;
