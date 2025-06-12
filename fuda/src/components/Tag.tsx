@@ -33,17 +33,27 @@ export default function Tag() {
     const handleClick = (tag: string) => {
         if (tag === '#전체') {
             navigate('/entire');
+        } else if (tag === '#인성'){
+            navigate('/character');
+        } else if (tag === '#백엔드'){
+            navigate('/backend');
+        } else if (tag === '#CS'){
+            navigate('/cs');
+        } else if (tag === '#프론트엔드'){
+            navigate('/frontend');
+        } else if (tag === '#프레임워크'){
+            navigate('/framework');
         }
     };
 
     return (
         <TagContainer>
             <MainTag onClick={() => handleClick('#전체')}>#전체</MainTag>
-            <MainTag>#인성</MainTag>
-            <MainTag>#백엔드</MainTag>
-            <MainTag>#CS</MainTag>
-            <MainTag>#프론트엔드</MainTag>
-            <MainTag>#프레임워크</MainTag>
+            <MainTag onClick={() => handleClick('#인성')}>#인성</MainTag>
+            <MainTag onClick={() => handleClick('#백엔드')}>#백엔드</MainTag>
+            <MainTag onClick={() => handleClick('#CS')}>#CS</MainTag>
+            <MainTag onClick={() => handleClick('#프론트엔드')}>#프론트엔드</MainTag>
+            <MainTag onClick={() => handleClick('#프레임워크')}>#프레임워크</MainTag>
         </TagContainer>
     );
 }
