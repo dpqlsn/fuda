@@ -19,7 +19,6 @@ const Container = styled.div`
 
 const MainArea = styled.div`
     width: 870px;
-    padding-left: 120px;
 `;
 
 const Title = styled.div`
@@ -51,7 +50,7 @@ const Answer = styled.div`
     color: gray;
     width: 220px;
     text-align: left;
-    margin-left: 120px;
+    padding-left: 120px;
     font-size: 20px;
 `;
 
