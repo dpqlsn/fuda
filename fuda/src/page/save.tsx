@@ -35,38 +35,38 @@ const Item = styled.div`
     border-radius: 8px;
     margin-bottom: 24px;
     align-items: flex-start;
+    flex-wrap: wrap;
 `;
 
 const Question = styled.div`
-    display: flex;
-    justify-content: space-between;
+    flex: 1;
     font-size: 24px;
-    margin-left: 24px;
-    width: 220px;
+    margin-right: 16px;
     text-align: left;
+    word-break: break-word;
 `;
 
 const Answer = styled.div`
+    flex: 2;
     color: gray;
-    width: 220px;
     text-align: left;
-    padding-left: 120px;
     font-size: 20px;
+    word-break: break-word;
+    white-space: pre-wrap;
 `;
 
 const DeleteButton = styled.button`
-    display: flex;
-    justify-content: right;
     background-color: #7BC357;
     color: white;
     border: none;
     padding: 12px 24px;
-    margin-left: 120px;
+    margin-left: 20px;
     font-size: 20px;
     border-radius: 24px;
     cursor: pointer;
     font-family: 'Beanpole', sans-serif;
 `;
+
 
 export default function SavedList() {
     const [qaList, setQaList] = useState<Saved[]>(() => {
