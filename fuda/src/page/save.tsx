@@ -78,6 +78,7 @@ export default function SavedList() {
         const newList = [...qaList];
         newList.splice(index, 1);
         setQaList(newList);
+        localStorage.setItem('savedQA', JSON.stringify(newList));
     };
 
     return (
