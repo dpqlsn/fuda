@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const MainArea = styled.div`
     width: 870px;
+    margin-left: 120px;
 `;
 
 const Title = styled.div`
@@ -30,7 +31,6 @@ const Title = styled.div`
 
 const Item = styled.div`
     display: flex;
-    justify-content: space-between;
     background: #F9F9F9;
     padding: 32px;
     border-radius: 8px;
