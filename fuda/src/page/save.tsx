@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const MainArea = styled.div`
     width: 870px;
-    margin-left: 120px;
+    padding-left: 120px;
 `;
 
 const Title = styled.div`

@@ -8,6 +8,7 @@ const Container = styled.div`
     width: 223px;
     height: 100vh;
     padding-top: 162px;
+    z-index: 200;
 `;
 
 const Element = styled.div`
