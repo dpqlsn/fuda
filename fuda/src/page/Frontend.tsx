@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 import styled from '@emotion/styled';
-import Bar from '../components/NavBar';
+import Bar from '../components/Navbar';
 
 const Container = styled.div`
     position: fixed;
@@ -100,7 +100,18 @@ export default function Frontend() {
         "React에서 상태 관리는 어떻게 하나요? (예: Redux, Context API)",
         "브라우저 렌더링 과정에 대해 설명해주세요.",
         "웹 성능 최적화 경험이 있다면 설명해주세요.",
-        "Typescript를 사용하는 이유와 장점은 무엇인가요?"
+        "Typescript를 사용하는 이유와 장점은 무엇인가요?",
+        "Javascript가 단일 스레드인데 어떻게 멀티스레드 처럼 동작하나요?",
+        "CSR과 SSR의 차이점은 무엇인가요?",
+        "웹 접근성(WA, a11y)을 고려한 개발 경험이 있다면 알려주세요.",
+        "프론트엔드에서 CORS란 무엇이며, 어떻게 해결하나요?",
+        "디바운싱과 스로틀링의 차이와 사용 사례는 무엇인가요?",
+        "웹팩(Webpack)과 번들링에 대해 설명해주세요.",
+        "REST API와 GraphQL의 차이점을 설명해주세요.",
+        "브라우저의 이벤트 버블링과 캡처링에 대해 설명해주세요.",
+        "컴포넌트 재사용성을 높이기 위해 어떤 방법을 사용하셨나요?",
+        "Intersection Observer는 무엇이며 어떤 상황에서 유용한가요?",
+        "프론트엔드 테스트에는 어떤 도구를 사용해봤고, 어떤 테스트를 작성했나요?"
     ];
 
     const [time, setTime] = useState(0);

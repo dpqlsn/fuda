@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import '../App.css';
+import '../App.css'
 import styled from '@emotion/styled';
-import Bar from '../components/NavBar';
+import Bar from '../components/Navbar';
 
 const Container = styled.div`
     position: fixed;
@@ -100,7 +100,17 @@ export default function Framework() {
         "React에서 useState hook은 무엇이고 어떻게 사용하나요?",
         "Vue의 반응형 시스템은 어떻게 동작하나요?",
         "Next.js와 CRA(Create React App)의 차이점은 무엇인가요?",
-        "Angular에서 의존성 주입(Dependency Injection)은 어떻게 이루어지나요?"
+        "Angular에서 의존성 주입(Dependency Injection)은 어떻게 이루어지나요?",
+        "React의 useEffect 훅은 어떤 역할을 하나요?",
+        "React에서 상태 끌어올리기(lifting state up)는 왜 필요한가요?",
+        "Vue의 Composition API와 Options API의 차이점은 무엇인가요?",
+        "Svelte는 다른 프레임워크와 어떤 점에서 다른가요?",
+        "Next.js에서 getServerSideProps와 getStaticProps의 차이점은?",
+        "Angular의 컴포넌트 라이프사이클은 어떻게 구성되어 있나요?",
+        "React의 Context API는 무엇이며, 언제 사용하나요?",
+        "Vue의 v-if와 v-show의 차이는 무엇인가요?",
+        "React에서 key prop은 왜 필요하고, 어떻게 작동하나요?",
+        "Next.js에서 동적 라우팅은 어떻게 구현하나요?"
     ];
 
     const [time, setTime] = useState(0);

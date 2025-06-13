@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 import styled from '@emotion/styled';
-import Bar from '../components/NavBar';
+import Bar from '../components/Navbar';
 
 const Container = styled.div`
     position: fixed;
@@ -96,12 +96,25 @@ const SaveButton = styled.button`
 `;
 
 export default function CS() {
-    const questionList = [
-        "스레드와 프로세스의 차이를 설명해주세요.",
-        "HTTP와 HTTPS의 차이점은?",
-        "브라우저에 URL을 입력했을 때 일어나는 일을 설명해주세요.",
-        "해시 테이블의 시간 복잡도와 충돌 해결 방법은?"
-    ];
+const questionList = [
+    "스레드와 프로세스의 차이를 설명해주세요.",
+    "HTTP와 HTTPS의 차이점은?",
+    "브라우저에 URL을 입력했을 때 일어나는 일을 설명해주세요.",
+    "해시 테이블의 시간 복잡도와 충돌 해결 방법은?",
+    "쿠키, 세션, 로컬스토리지의 차이점은?",
+    "RESTful API란 무엇인가요?",
+    "TCP와 UDP의 차이점은?",
+    "OSI 7계층에 대해 설명해주세요.",
+    "DNS가 무엇이고 어떻게 동작하나요?",
+    "동기와 비동기의 차이점은 무엇인가요?",
+    "Garbage Collection은 어떻게 작동하나요?",
+    "Call Stack과 Event Loop의 관계를 설명해주세요.",
+    "데드락(Deadlock)은 무엇이고 어떻게 방지하나요?",
+    "Virtual Memory는 무엇인가요?",
+    "캐시(Cache)의 역할과 종류는 무엇인가요?",
+    "서버와 클라이언트의 차이점은?",
+    "CORS란 무엇이고 어떻게 해결하나요?"
+];
 
     const [time, setTime] = useState(0);
     const [answer, setAnswer] = useState('');

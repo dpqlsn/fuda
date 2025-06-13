@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import Bar from '../components/NavBar';
+import Bar from '../components/Navbar';
 import '../App.css';
 
 type Saved = {

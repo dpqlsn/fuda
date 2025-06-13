@@ -1,17 +1,17 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 @font-face {
-  font-family: 'Beanpole';
-  src: url('../src/font/Beanpole.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Beanpole';
+    src: url('../src/font/Beanpole.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-  font-family: 'Beanpole', sans-serif;
+    font-family: 'Beanpole', sans-serif;
 }

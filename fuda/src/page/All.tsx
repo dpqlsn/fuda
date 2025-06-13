@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 import styled from '@emotion/styled';
-import Bar from '../components/NavBar';
+import Bar from '../components/Navbar';
 
 const Container = styled.div`
     position: fixed;
