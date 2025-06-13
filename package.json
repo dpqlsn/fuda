@@ -1,5 +1,10 @@
 {
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0"
   }
 }
