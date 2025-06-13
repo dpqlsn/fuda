@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Landing from './page/Landing';
+import Landing from './page/landing';
 import Choice from './page/Main';
 import Entire from './page/All';
-import Save from './page/Save';
+import Save from './page/save';
 import Character from './page/Character';
 import CS from './page/CS';
 import Backend from './page/Backend';
