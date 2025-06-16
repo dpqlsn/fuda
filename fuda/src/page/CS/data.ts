@@ -1,4 +1,4 @@
-const questionList = [[
+const questionList = [
     "스레드와 프로세스의 차이를 설명해주세요.",
     "HTTP와 HTTPS의 차이점은?",
     "브라우저에 URL을 입력했을 때 일어나는 일을 설명해주세요.",
@@ -108,6 +108,6 @@ const questionList = [[
     "서비스 메시(Service Mesh)란?",
     "헬스 체크란?",
     "폴링(Polling) vs 푸시(Push)의 차이는?"
-]];
+];
 
 export default questionList;

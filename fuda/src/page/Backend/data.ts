@@ -1,4 +1,4 @@
-const QestionList = [[
+const QestionList = [
         "데이터베이스 정규화와 비정규화의 차이점은 무엇인가요?",
         "트랜잭션이란 무엇이고, ACID는 어떤 원칙인가요?",
         "인증과 인가의 차이점은? JWT에 대해 설명해주세요.",
@@ -112,6 +112,6 @@ const QestionList = [[
         "헬스 체크 API 설계 시 고려할 점은?",
         "Hot Reload vs Cold Restart의 차이는 무엇인가요?",
         "스타트업 환경에서 백엔드 개발의 주요 고려사항은?"
-]];
+];
 
 export default QestionList;

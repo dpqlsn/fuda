@@ -1,4 +1,4 @@
-const QuestionList = [[
+const QuestionList = [
         "React에서 useState hook은 무엇이고 어떻게 사용하나요?",
         "리더십 경험이 있다면 소개해주세요.",
         "실패를 경험한 적이 있다면, 그 상황과 배운 점을 알려주세요.",
@@ -109,6 +109,6 @@ const QuestionList = [[
         "기술 블로그나 문서 작성 경험이 있나요?",
         "문제 해결을 위해 디버깅은 어떻게 하나요?",
         "협업 툴은 어떤 것을 써보셨나요? (예: Jira, Notion 등)"
-]];
+];
 
 export default QuestionList;
