@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './page/landing';
 import Choice from './page/Main';
-import Entire from './page/All';
+import Entire from './page/All/All';
 import Save from './page/save';
-import Character from './page/Character';
-import CS from './page/CS';
-import Backend from './page/Backend';
-import Frontend from './page/Frontend';
-import Framework from './page/Framework'
+import Character from './page/Character/Character';
+import CS from './page/CS/CS';
+import Backend from './page/Backend/Backend';
+import Frontend from './page/Frontend/Frontend';
+import Framework from './page/Framework/Framework'
 
 
 export default function App() {
