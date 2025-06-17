@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './page/landing';
 import Choice from './page/Main';
 import Entire from './page/All/All';
-import Save from './page/save';
+import Save from './Save/save';
 import Character from './page/Character/Character';
 import CS from './page/CS/CS';
 import Backend from './page/Backend/Backend';

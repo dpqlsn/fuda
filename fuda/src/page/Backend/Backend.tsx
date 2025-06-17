@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../../App.css';
 import data from './data';
-import * as _ from '../../components/style'
+import * as _ from '../../components/style';
 import Bar from '../../components/Navbar';
 
 export default function Entire() {
