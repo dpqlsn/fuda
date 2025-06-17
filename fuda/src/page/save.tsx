@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import Bar from '../components/Navbar';
+import DownIcon from '../assets/download.svg';
 import '../App.css';
-
-type Saved = {
+interface Saved {
     question: string;
     answer: string;
 };
@@ -21,13 +21,6 @@ const MainArea = styled.div`
     width: 870px;
 `;
 
-const Title = styled.div`
-    color: #161716;
-    font-size: 44px;
-    margin-bottom: 44px;
-    text-align: left;
-`;
-
 const Item = styled.div`
     display: flex;
     background: #F9F9F9;
@@ -38,12 +31,41 @@ const Item = styled.div`
     flex-wrap: wrap;
 `;
 
+const TitleArea = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 44px;
+`;
+
+const Title = styled.div`
+    color: #161716;
+    font-size: 44px;
+    text-align: left;
+`;
+
+const IconButton = styled.button`
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+`;
+
 const Question = styled.div`
     flex: 1;
     font-size: 24px;
     margin-right: 16px;
     text-align: left;
     word-break: break-word;
+
+    ::selection {
+        background: #f6f1c6;
+        color: black;
+    }
 `;
 
 const Answer = styled.div`
@@ -53,7 +75,13 @@ const Answer = styled.div`
     font-size: 20px;
     word-break: break-word;
     white-space: pre-wrap;
+
+    ::selection {
+        background: #f6f1c6;
+        color: black;
+    }
 `;
+
 
 const DeleteButton = styled.button`
     background-color: #7BC357;
@@ -86,7 +114,12 @@ export default function SavedList() {
             <Bar />
             <Container>
                 <MainArea>
-                    <Title>저장 된 질문보기</Title>
+                    <TitleArea>
+                        <Title>저장 된 질문보기</Title>
+                            <IconButton onClick={() => console.log('체크')}>
+                            <img src={DownIcon} alt="Download" />
+                        </IconButton>
+                    </TitleArea>
                     {qaList.map((item: Saved, index: number) => (
                         <Item key={index}>
                                 <Question>{item.question}</Question>
