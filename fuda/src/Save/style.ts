@@ -53,6 +53,11 @@ export const Question = styled.div`
     margin-right: 16px;
     text-align: left;
     word-break: break-word;
+
+    ::selection {
+        background: #f6f1c6;
+        color: black;
+    }
 `;
 
 export const Answer = styled.div`
@@ -62,6 +67,11 @@ export const Answer = styled.div`
     font-size: 20px;
     word-break: break-word;
     white-space: pre-wrap;
+
+    ::selection {
+        background: #f6f1c6;
+        color: black;
+    }
 `;
 
 export const DeleteButton = styled.button`
@@ -74,9 +84,4 @@ export const DeleteButton = styled.button`
     border-radius: 24px;
     cursor: pointer;
     font-family: 'Beanpole', sans-serif;
-`;
-
-export const mark = styled.div`
-    background:rgb(212, 255, 0);
-    padding: 0 2px; 
 `;
