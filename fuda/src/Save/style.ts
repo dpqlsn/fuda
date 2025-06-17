@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
     position: relative;
-    padding: 40px 0;
+    padding: 2% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,15 +10,15 @@ export const Container = styled.div`
 `;
 
 export const MainArea = styled.div`
-    width: 870px;
+    width: 70%;
 `;
 
 export const Item = styled.div`
     display: flex;
     background: #F9F9F9;
-    padding: 32px;
+    padding: 4%;
     border-radius: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 3%;
     align-items: flex-start;
     flex-wrap: wrap;
 `;
@@ -28,12 +28,12 @@ export const TitleArea = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 44px;
+    margin-bottom: 5%;
 `;
 
 export const Title = styled.div`
     color: #161716;
-    font-size: 44px;
+    font-size: 2.6rem;
     text-align: left;
 `;
 
@@ -49,8 +49,8 @@ export const IconButton = styled.button`
 
 export const Question = styled.div`
     flex: 1;
-    font-size: 24px;
-    margin-right: 16px;
+    font-size: 1.5rem;
+    margin-right: 2%;
     text-align: left;
     word-break: break-word;
 
@@ -64,7 +64,7 @@ export const Answer = styled.div`
     flex: 2;
     color: gray;
     text-align: left;
-    font-size: 20px;
+    font-size: 1.2rem;
     word-break: break-word;
     white-space: pre-wrap;
 
@@ -78,9 +78,9 @@ export const DeleteButton = styled.button`
     background-color: #7BC357;
     color: white;
     border: none;
-    padding: 12px 24px;
-    margin-left: 20px;
-    font-size: 20px;
+    padding: 1% 3%;
+    margin-left: 5%;
+    font-size: 1.3rem;
     border-radius: 24px;
     cursor: pointer;
     font-family: 'Beanpole', sans-serif;

@@ -7,12 +7,12 @@ const TagContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1rem;
 `;
 
 const MainTag = styled.div`
-    padding: 8px 16px;
-    font-size: 24px;
+    padding: 2% 4%;
+    font-size: 1.5rem;
     background-color: #7BC357;
     color: #fff;
     display: inline-flex;

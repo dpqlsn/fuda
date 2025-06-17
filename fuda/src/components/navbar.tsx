@@ -5,22 +5,22 @@ const Container = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    width: 223px;
+    width: 13%;
     height: 100vh;
-    padding-top: 162px;
+    padding-top: 8%;
     z-index: 200;
 `;
 
 const Element = styled.div`
-    width: 182px;
-    height: 63px;
-    font-size: 24px;
+    width: 80%;
+    height: 6vh;
+    font-size: 1.5rem;
     border-radius: 4px;
     color: #B5B5B5;
     text-align: center;
-    line-height: 63px;
+    line-height: 4rem;
     cursor: pointer;
-    margin: 0 auto 10px;
+    margin: 0 auto 2%;
 
     :hover {
         background-color: #E5F3DD;
