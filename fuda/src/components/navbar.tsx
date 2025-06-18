@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const Element = styled.div`
     width: 80%;
-    height: 6vh;
+    height: 8vh;
     font-size: 1.5rem;
     border-radius: 4px;
     color: #B5B5B5;
