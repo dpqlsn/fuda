@@ -59,11 +59,6 @@ export const Question = styled.div`
   margin-right: 2%;
   text-align: left;
   word-break: break-word;
-
-  ::selection {
-    background: #f6f1c6;
-    color: black;
-  }
 `;
 
 export const Answer = styled.div`
@@ -73,11 +68,6 @@ export const Answer = styled.div`
   font-size: 1.2rem;
   word-break: break-word;
   white-space: pre-wrap;
-
-  ::selection {
-    background: #f6f1c6;
-    color: black;
-  }
 `;
 
 export const DeleteButton = styled.button`
