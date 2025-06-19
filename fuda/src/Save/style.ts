@@ -50,7 +50,7 @@ export const Item = styled.div<ItemProps>`
   flex-wrap: wrap;
   transition: background-color 0.3s;
   background-color: ${({ selected }) =>
-    selected ? "rgba(0, 0, 0, 0.1)" : "transparent"};
+    selected ? "rgba(0, 0, 0, 0.1)" : "f9f9f9"};
 `;
 
 export const Question = styled.div`
