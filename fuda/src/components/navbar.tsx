@@ -12,15 +12,18 @@ const Container = styled.div`
 `;
 
 const Element = styled.div`
+    display: flex;
+    text-align: center;
+    justify-content: center;
     width: 80%;
-    height: 8vh;
     font-size: 1.5rem;
     border-radius: 4px;
     color: #B5B5B5;
     text-align: center;
-    line-height: 4rem;
+    padding: 10% 0%;
     cursor: pointer;
     margin: 0 auto 2%;
+
 
     :hover {
         background-color: #E5F3DD;
