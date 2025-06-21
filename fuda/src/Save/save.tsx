@@ -13,7 +13,7 @@ interface Saved {
 export default function SavedList() {
   const [qaList, setQaList] = useState<Saved[]>(() => {
     const data = localStorage.getItem("savedQA");
-    return data ? JSON.parse(data) : [];
+    return data ? JSON.parse(data).reverse() : [];
   });
 
   const [highlightedTexts, setHighlightedTexts] = useState<string[]>(() => {
@@ -110,11 +110,12 @@ export default function SavedList() {
     const container = document.createElement("div");
     Object.assign(container.style, {
       position: "fixed",
-      left: "-9999px",
+      left: "-9999rem",
       background: "white",
-      padding: "20px",
-      width: "210mm",
+      padding: "1.25rem",
+      width: "49.56rem",
       fontFamily: "Arial, sans-serif",
+      fontSize: "1rem",
     });
 
     selectedIndexes.forEach((index) => {
@@ -123,11 +124,11 @@ export default function SavedList() {
       const questionElem = document.createElement("div");
       questionElem.innerHTML = getHighlightedHTML(question);
       questionElem.style.fontWeight = "bold";
-      questionElem.style.marginBottom = "8px";
+      questionElem.style.marginBottom = "0.5rem";
 
       const answerElem = document.createElement("div");
       answerElem.innerHTML = getHighlightedHTML(answer);
-      answerElem.style.marginBottom = "24px";
+      answerElem.style.marginBottom = "1.5rem";
 
       container.appendChild(questionElem);
       container.appendChild(answerElem);
