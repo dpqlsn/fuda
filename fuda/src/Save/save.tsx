@@ -26,7 +26,18 @@ export default function SavedList() {
   useEffect(() => {
     const handleMouseUp = () => {
       const selection = window.getSelection()?.toString().trim();
-      if (selection && !highlightedTexts.includes(selection)) {
+      if (!selection) return;
+
+      const lowerSelection = selection.toLowerCase();
+      const lowerHighlightedTexts = highlightedTexts.map((t) => t.toLowerCase());
+
+      if (lowerHighlightedTexts.includes(lowerSelection)) {
+        const updated = highlightedTexts.filter(
+          (t) => t.toLowerCase() !== lowerSelection
+        );
+        setHighlightedTexts(updated);
+        localStorage.setItem("highlightedTexts", JSON.stringify(updated));
+      } else {
         const updated = [...highlightedTexts, selection];
         setHighlightedTexts(updated);
         localStorage.setItem("highlightedTexts", JSON.stringify(updated));
