@@ -11,4 +11,4 @@
   👉 **피그마** : https://www.figma.com/design/q1oJtVUGo1iku6cHna7ZXT/%ED%91%B8%EB%8B%A4?node-id=7-16&t=XYGu9cp7SUfAG5ui-1  
   👉 **노션** : https://www.notion.so/1f8178f312858083945cf1c7e86bf3b3?source=copy_link  
   👉 **이메일** : 24.008@bssm.hs.kr  
-  👉 **푸다싸보기** : https://fuda.vercel.app
+  👉 **푸다써보기** : https://fuda.vercel.app
