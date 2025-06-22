@@ -5,6 +5,8 @@ import "../App.css";
 import * as _ from "./style";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import ConfirmModal from "../components/Modal/ConfirmModal"; 
+
 interface Saved {
   question: string;
   answer: string;
@@ -22,6 +24,7 @@ export default function SavedList() {
   });
 
   const [selectedIndexes, setSelectedIndexes] = useState<number[]>([]);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -31,17 +34,15 @@ export default function SavedList() {
       const lowerSelection = selection.toLowerCase();
       const lowerHighlightedTexts = highlightedTexts.map((t) => t.toLowerCase());
 
+      let updated;
       if (lowerHighlightedTexts.includes(lowerSelection)) {
-        const updated = highlightedTexts.filter(
-          (t) => t.toLowerCase() !== lowerSelection
-        );
-        setHighlightedTexts(updated);
-        localStorage.setItem("highlightedTexts", JSON.stringify(updated));
+        updated = highlightedTexts.filter((t) => t.toLowerCase() !== lowerSelection);
       } else {
-        const updated = [...highlightedTexts, selection];
-        setHighlightedTexts(updated);
-        localStorage.setItem("highlightedTexts", JSON.stringify(updated));
+        updated = [...highlightedTexts, selection];
       }
+
+      setHighlightedTexts(updated);
+      localStorage.setItem("highlightedTexts", JSON.stringify(updated));
     };
 
     document.addEventListener("mouseup", handleMouseUp);
@@ -73,9 +74,7 @@ export default function SavedList() {
     if (!highlightedTexts.length) return [text];
 
     const pattern = new RegExp(
-      `(${highlightedTexts
-        .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
-        .join("|")})`,
+      `(${highlightedTexts.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
       "gi"
     );
     return text.split(pattern);
@@ -84,9 +83,7 @@ export default function SavedList() {
   const highlightMatched = (text: string) =>
     getHighlightedParts(text).map((part, i) =>
       highlightedTexts.some((ht) => ht.toLowerCase() === part.toLowerCase()) ? (
-        <mark key={i} style={{ backgroundColor: "#fff8cc" }}>
-          {part}
-        </mark>
+        <mark key={i} style={{ backgroundColor: "#fff8cc" }}>{part}</mark>
       ) : (
         <span key={i}>{part}</span>
       )
@@ -101,7 +98,7 @@ export default function SavedList() {
       )
       .join("");
 
-  const handleDownloadPDF = async () => {
+  const executeDownloadPDF = async () => {
     if (selectedIndexes.length === 0) {
       alert("하나 이상의 항목을 선택하세요");
       return;
@@ -169,7 +166,7 @@ export default function SavedList() {
         <_.MainArea className="aiReport_page">
           <_.TitleArea>
             <_.Title>저장 된 질문보기</_.Title>
-            <_.IconButton onClick={handleDownloadPDF}>
+            <_.IconButton onClick={() => setIsConfirmModalOpen(true)}>
               <img src={DownIcon} alt="Download" />
             </_.IconButton>
           </_.TitleArea>
@@ -197,6 +194,15 @@ export default function SavedList() {
           )}
         </_.MainArea>
       </_.Container>
+      {isConfirmModalOpen && (
+        <ConfirmModal
+          onConfirm={() => {
+            executeDownloadPDF();
+            setIsConfirmModalOpen(false);
+          }}
+          onCancel={() => setIsConfirmModalOpen(false)}
+        />
+      )}
     </>
   );
 }

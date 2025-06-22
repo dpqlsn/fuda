@@ -87,7 +87,6 @@ export const SaveButton = styled.button`
     border-radius: 24px;
     font-size: 1.5rem;
     font-family: 'Beanpole', sans-serif;
-    font-family: 'Beanpole', sans-serif;
 
     :hover {
         background-color: #7BC357;

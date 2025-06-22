@@ -38,6 +38,7 @@ export const IconButton = styled.button`
   margin: 0;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const Item = styled.div<ItemProps>`
