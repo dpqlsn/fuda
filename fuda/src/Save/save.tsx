@@ -5,7 +5,7 @@ import "../App.css";
 import * as _ from "./style";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import ConfirmModal from "../components/Modal/ConfirmModal"; 
+import ConfirmModal from "../components/Modal/ConfirmModal";
 
 interface Saved {
   question: string;
@@ -99,10 +99,7 @@ export default function SavedList() {
       .join("");
 
   const executeDownloadPDF = async () => {
-    if (selectedIndexes.length === 0) {
-      alert("하나 이상의 항목을 선택하세요");
-      return;
-    }
+    if (selectedIndexes.length === 0) return;
 
     const container = document.createElement("div");
     Object.assign(container.style, {
@@ -166,7 +163,14 @@ export default function SavedList() {
         <_.MainArea className="aiReport_page">
           <_.TitleArea>
             <_.Title>저장 된 질문보기</_.Title>
-            <_.IconButton onClick={() => setIsConfirmModalOpen(true)}>
+            <_.IconButton
+              onClick={() => {
+                if (selectedIndexes.length > 0) {
+                  setIsConfirmModalOpen(true);
+                }
+              }}
+              disabled={selectedIndexes.length === 0}
+            >
               <img src={DownIcon} alt="Download" />
             </_.IconButton>
           </_.TitleArea>

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 interface ItemProps {
   selected?: boolean;
 }
@@ -31,14 +30,13 @@ export const Title = styled.div`
   text-align: left;
 `;
 
-export const IconButton = styled.button`
+export const IconButton = styled.button<{ disabled?: boolean }>`
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
   cursor: pointer;
+
+  opacity: ${({ disabled }) => (disabled ? 0.4 : 1)};
+  pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
 `;
 
 export const Item = styled.div<ItemProps>`
