@@ -4,9 +4,10 @@ import data from "./data";
 import * as _ from "../../components/style";
 import Bar from "../../components/Navbar";
 
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+
 export default function Entire() {
     const [time, setTime] = useState(0);
-    const [answer, setAnswer] = useState("");
     const [questionIndex, setQuestionIndex] = useState(() =>
         Math.floor(Math.random() * data.length)
     );
@@ -14,12 +15,17 @@ export default function Entire() {
         const data = localStorage.getItem("savedQA");
         return data ? JSON.parse(data) : [];
     });
+    const [manualAnswer, setManualAnswer] = useState("");
+
+    const { transcript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
     const currentQuestion = data[questionIndex];
 
+    const answer = manualAnswer.trim() || transcript.trim();
+
     const handleSave = () => {
-        if (!answer.trim()) {
-        alert("답변을 입력해주세요.");
+        if (!answer) {
+        alert("답변을 입력하거나 음성으로 녹음해주세요.");
         return;
         }
 
@@ -32,7 +38,8 @@ export default function Entire() {
         } while (newIndex === questionIndex);
 
         setQuestionIndex(newIndex);
-        setAnswer("");
+        setManualAnswer("");
+        SpeechRecognition.stopListening();
         setTime(0);
 
         setSavedQA(updatedQA);
@@ -46,7 +53,8 @@ export default function Entire() {
         } while (newIndex === questionIndex);
 
         setQuestionIndex(newIndex);
-        setAnswer("");
+        setManualAnswer("");
+        SpeechRecognition.stopListening();
         setTime(0);
     };
 
@@ -58,20 +66,45 @@ export default function Entire() {
     const formatTime = (t: number) =>
         `${Math.floor(t / 60)}:${(t % 60).toString().padStart(2, "0")}`;
 
+    if (!browserSupportsSpeechRecognition) {
+        return (
+        <>
+            <Bar />
+            <_.Container>
+            <p>이 브라우저는 음성 인식을 지원하지 않습니다.</p>
+            </_.Container>
+        </>
+        );
+    }
+
     return (
         <>
         <Bar />
         <_.Container>
             <_.Timer>{formatTime(time)}</_.Timer>
             <_.Question>{currentQuestion}</_.Question>
+
             <_.InputBox
-            placeholder="입력하세요"
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
+            as="textarea"
+            rows={5}
+            placeholder="텍스트를 입력하거나 음성 녹음을 사용하세요."
+            value={manualAnswer || transcript}
+            onChange={(e) => setManualAnswer(e.target.value)}
             />
+
             <_.ButtonContainer>
-                <_.NextButton onClick={handleNext}>넘어가기</_.NextButton>
-                <_.SaveButton onClick={handleSave}>저장하기</_.SaveButton>
+            <_.NextButton onClick={handleNext}>넘어가기</_.NextButton>
+            <_.SaveButton onClick={handleSave}>저장하기</_.SaveButton>
+            </_.ButtonContainer>
+
+            <_.ButtonContainer>
+            {listening ? (
+                <_.NextButton onClick={SpeechRecognition.stopListening}>녹음 중지</_.NextButton>
+            ) : (
+                <_.SaveButton onClick={() => SpeechRecognition.startListening({ language: "ko-KR" })}>
+                음성 녹음 시작
+                </_.SaveButton>
+            )}
             </_.ButtonContainer>
         </_.Container>
         </>
