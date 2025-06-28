@@ -61,6 +61,7 @@ export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-bottom: 1rem;
 `;
 
 export const NextButton = styled.button`
